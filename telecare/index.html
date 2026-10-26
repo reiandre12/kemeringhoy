@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TeleCare · Barangay clinic information</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Every page is drawn into this box by js/app.js -->
+<div id="app"></div>
+
+<!-- Pop-up used by the admin dashboard to create / edit a notice -->
+<dialog id="dlg"><form method="dialog" id="nf">
+<h3 id="dt">New notice</h3>
+<label for="nt">Title</label><input id="nt" required maxlength="80">
+<label for="nc">Category</label><select id="nc"><option>Schedule notice</option><option>Service information</option><option>Community update</option><option>Clinic information</option></select>
+<label for="ns">Status</label><select id="ns"><option>Published</option><option>Draft</option></select>
+<label for="nb">Message</label><textarea id="nb" rows="3" required></textarea>
+<p class="note">Publish information, not records. Never add patient details.</p>
+<div class="row" style="margin-top:18px;justify-content:flex-end"><button type="button" class="btn" onclick="dlg.close()">Cancel</button><button class="btn pri">Save notice</button></div>
+</form></dialog>
+
+<!-- Small message that appears at the bottom after an action -->
+<div id="toast" role="status"></div>
+
+<!-- Scripts must load in this order -->
+<script src="js/content.js"></script>    <!-- wording you edit -->
+<script src="js/utils.js"></script>      <!-- helpers -->
+<script src="js/data.js"></script>       <!-- demo accounts, notices, login session -->
+<script src="js/components.js"></script> <!-- header + footer -->
+<script src="js/pages.js"></script>      <!-- home, about, login, admin -->
+<script src="js/app.js"></script>        <!-- router + click/form handlers (keep last) -->
+</body>
+</html>
